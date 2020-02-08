@@ -12,8 +12,8 @@ import shutil
 # q save and next image
 # ESC close
 # z restart current image
-# python manseg.py coast train_coast mask_coast DESC (G)
-# python manseg.py coast train_coast mask_coast ASC (A)
+# python manseg.py coast train_coast mask_coast
+# python manseg.py coast train_coast mask_coast
 
 
 
@@ -87,7 +87,10 @@ if __name__ == '__main__':
     orig_folder = os.listdir(sys.argv[1])
     train_folder = sys.argv[2]
     mask_folder = sys.argv[3]
-    ordenacion = sys.argv[4]
+    try:
+        ordenacion = sys.argv[4]
+    except:
+        ordenacion = 'ASC'
 
     if ordenacion == "ASC":
         orig_folder.sort(reverse=False)
