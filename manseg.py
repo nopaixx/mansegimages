@@ -7,6 +7,16 @@ import traceback
 from PIL import Image
 import shutil
 
+# commands
+# d delete image not process
+# q save and next image
+# ESC close
+# z restart current image
+# python manseg.py coast train_coast mask_coast DESC
+# python manseg.py coast train_coast mask_coast ASC
+
+
+
 drawing=False
 mode=True
 def mask_image(file_orig, train_folder, mask_folder, name):
@@ -57,7 +67,8 @@ def mask_image(file_orig, train_folder, mask_folder, name):
             sys.exit()
         if k==ord('q'):
             break
-        if k==ord('d')
+        if k==ord('d'):
+            os.remove(file_orig)
             return
         elif k==ord('z'):
             alllines = []
@@ -76,6 +87,13 @@ if __name__ == '__main__':
     orig_folder = os.listdir(sys.argv[1])
     train_folder = sys.argv[2]
     mask_folder = sys.argv[3]
+    ordenacion = sys.argv[4]
+
+    if ordenacion == "ASC":
+        orig_folder.sort(reverse=False)
+    else:
+        orig_folder.sort(reverse=True)
+    print(orig_folder)
     current_dir = os.getcwd()
     for file_orig in orig_folder:
         try:
