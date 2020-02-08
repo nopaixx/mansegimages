@@ -12,8 +12,8 @@ import shutil
 # q save and next image
 # ESC close
 # z restart current image
-# python manseg.py coast train_coast mask_coast DESC
-# python manseg.py coast train_coast mask_coast ASC
+# python manseg.py coast train_coast mask_coast DESC (G)
+# python manseg.py coast train_coast mask_coast ASC (A)
 
 
 
