@@ -57,6 +57,8 @@ def mask_image(file_orig, train_folder, mask_folder, name):
             sys.exit()
         if k==ord('q'):
             break
+        if k==ord('d')
+            return
         elif k==ord('z'):
             alllines = []
             im = cv2.imread(file_orig)
