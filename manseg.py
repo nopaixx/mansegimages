@@ -27,18 +27,18 @@ def mask_image(file_orig, train_folder, mask_folder, name):
         elif event==cv2.EVENT_MOUSEMOVE:
             if drawing==True:
                 if mode==True:
-                    cv2.line(im,(current_former_x,current_former_y),(former_x,former_y),(0,0,255),5)
+                    cv2.line(im,(current_former_x,current_former_y),(former_x,former_y),(0,0,255),2)
                     tmp_point.append([former_x, former_y])
                     current_former_x = former_x
                     current_former_y = former_y
         elif event==cv2.EVENT_LBUTTONUP:
             drawing=False
             if mode==True:
-                cv2.line(im,(current_former_x,current_former_y),(former_x,former_y),(0,0,255),5)
+                cv2.line(im,(current_former_x,current_former_y),(former_x,former_y),(0,0,255),2)
                 tmp_point.append([former_x, former_y])
                 current_former_x = former_x
                 current_former_y = former_y
-                cv2.line(im,(current_former_x, current_former_y), (init_x, init_y),(0,0,255),5)
+                cv2.line(im,(current_former_x, current_former_y), (init_x, init_y),(0,0,255),2)
                 tmp_point.append([init_x, init_y])
                 allpoints.append(tmp_point)
 
@@ -51,7 +51,7 @@ def mask_image(file_orig, train_folder, mask_folder, name):
 
     while(1):
         cv2.imshow('image',im)
-        cv2.resizeWindow('image', 1200,1200)
+        cv2.resizeWindow('image', 800, 800)
         k=cv2.waitKey(1)&0xFF
         if k==27:
             sys.exit()
